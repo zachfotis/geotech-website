@@ -8,10 +8,13 @@ import { RxHamburgerMenu } from 'react-icons/rx';
 import { SlClose } from 'react-icons/sl';
 import { useEffect, useState } from 'react';
 import { FaUser } from 'react-icons/fa';
+import { usePathname } from 'next/navigation';
 
 function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
+
+  const pathname = usePathname();
 
   const handleResize = () => {
     window.innerWidth <= 768 ? setIsTablet(true) : setIsTablet(false);
@@ -28,12 +31,12 @@ function Navbar() {
       <div className="w-full max-w-[1280px] h-fit m-auto flex justify-between items-center">
         <motion.div whileHover={{ scale: 1.05 }} className="tablet:hidden">
           <Link href="/">
-            <Image src={LogoImage} alt="Company Logo" width={150} height={150} />
+            <Image src={LogoImage} alt="Company Logo" width={150} />
           </Link>
         </motion.div>
         <motion.div whileHover={{ scale: 1.05 }} className="hidden tablet:block">
           <Link href="/">
-            <Image src={LogoSmallImage} alt="Company Logo" width={40} height={40} />
+            <Image src={LogoSmallImage} alt="Company Logo" width={40} />
           </Link>
         </motion.div>
         <AnimatePresence mode="wait">
@@ -56,7 +59,7 @@ function Navbar() {
                 transition={{ duration: 0.5, type: 'spring', stiffness: 100 }}
               >
                 <Link href="/">
-                  <Image src={LogoSmallImage} alt="Company Logo" width={70} height={70} />
+                  <Image src={LogoSmallImage} alt="Company Logo" width={70} />
                 </Link>
               </motion.li>
               <motion.li
@@ -67,7 +70,9 @@ function Navbar() {
                 transition={{ duration: 0.5, delay: 0.1, type: 'spring', stiffness: 100 }}
                 onClick={() => setShowMenu(!showMenu)}
               >
-                <Link href="/">Home</Link>
+                <Link href="/" className={`${pathname === '/' ? 'font-[500] border-b border-1 border-black' : ''}`}>
+                  Home
+                </Link>
               </motion.li>
               <motion.li
                 className="hover:text-secondary"
@@ -77,7 +82,12 @@ function Navbar() {
                 transition={{ duration: 0.5, delay: 0.2, type: 'spring', stiffness: 100 }}
                 onClick={() => setShowMenu(!showMenu)}
               >
-                <Link href="/services">Services</Link>
+                <Link
+                  href="/services"
+                  className={`${pathname === '/services' ? 'font-[500] border-b border-1 border-black' : ''}`}
+                >
+                  Services
+                </Link>
               </motion.li>
               <motion.li
                 className="hover:text-secondary"
@@ -87,7 +97,12 @@ function Navbar() {
                 transition={{ duration: 0.5, delay: 0.3, type: 'spring', stiffness: 100 }}
                 onClick={() => setShowMenu(!showMenu)}
               >
-                <Link href="/projects">Projects</Link>
+                <Link
+                  href="/projects"
+                  className={`${pathname === '/projects' ? 'font-[500] border-b border-1 border-black' : ''}`}
+                >
+                  Projects
+                </Link>
               </motion.li>
               <motion.li
                 className="hover:text-secondary"
@@ -97,7 +112,12 @@ function Navbar() {
                 transition={{ duration: 0.5, delay: 0.4, type: 'spring', stiffness: 100 }}
                 onClick={() => setShowMenu(!showMenu)}
               >
-                <Link href="/academy">Academy</Link>
+                <Link
+                  href="/academy"
+                  className={`${pathname === '/academy' ? 'font-[500] border-b border-1 border-black' : ''}`}
+                >
+                  Academy
+                </Link>
               </motion.li>
               <motion.li
                 className="hover:text-secondary"
@@ -107,7 +127,12 @@ function Navbar() {
                 transition={{ duration: 0.5, delay: 0.4, type: 'spring', stiffness: 100 }}
                 onClick={() => setShowMenu(!showMenu)}
               >
-                <Link href="/about">About us</Link>
+                <Link
+                  href="/about"
+                  className={`${pathname === '/about' ? 'font-[500] border-b border-1 border-black' : ''}`}
+                >
+                  About us
+                </Link>
               </motion.li>
               <motion.li
                 className="px-3 py-1 rounded-lg bg-primary text-white
@@ -118,7 +143,12 @@ function Navbar() {
                 transition={{ duration: 0.5, delay: 0.4, type: 'spring', stiffness: 100 }}
                 onClick={() => setShowMenu(!showMenu)}
               >
-                <Link href="/quote">Get a Quote</Link>
+                <Link
+                  href="/quote"
+                  className={`${pathname === '/quote' ? 'font-[500] border-b border-1 border-black' : ''}`}
+                >
+                  Get a Quote
+                </Link>
               </motion.li>
               <motion.li
                 className="tablet:absolute tablet:top-5 tablet:left-5 hover:text-secondary"
