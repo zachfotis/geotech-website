@@ -1,8 +1,8 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import LogoImage from '../assets/images/logo-full.png';
-import LogoSmallImage from '../assets/images/logo.png';
+import LogoImage from '../../assets/images/logo-full.png';
+import LogoSmallImage from '../../assets/images/logo.png';
 import { motion, AnimatePresence } from 'framer-motion';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { SlClose } from 'react-icons/sl';
@@ -27,7 +27,7 @@ function Navbar() {
   }, []);
 
   return (
-    <nav className="w-full bg-white shadow-lg font-[400] p-5 text-black antialiased sticky top-0">
+    <nav className="w-full bg-white shadow-lg font-[400] p-5 text-black antialiased fixed top-0 z-50">
       <div className="w-full max-w-[1280px] h-fit m-auto flex justify-between items-center">
         <motion.div whileHover={{ scale: 1.05 }} className="tablet:hidden">
           <Link href="/">
@@ -135,8 +135,8 @@ function Navbar() {
                 </Link>
               </motion.li>
               <motion.li
-                className="px-3 py-1 rounded-lg bg-primary text-white
-                hover:bg-white hover:text-primary hover:outline-primary hover:outline hover:outline-1 hover:outline-solid"
+                className="px-3 py-1 rounded-lg text-primary hover:bg-primary hover:text-white
+                outline-primary outline outline-1 outline-solid"
                 initial={isTablet && { x: '500px' }}
                 animate={{ x: 0 }}
                 exit={{ x: '500px' }}
