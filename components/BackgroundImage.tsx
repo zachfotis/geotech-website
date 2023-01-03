@@ -4,7 +4,7 @@ function BackgroundImage({ image }: { image: StaticImageData }) {
   return (
     <div
       className="before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:-z-10 before:h-full before:opacity-100
-    before:bg-gradient-to-b from-slate-50 via-slate-50 to-transparent"
+    before:bg-gradient-to-b before:from-slate-50 before:via-slate-50 before:to-transparent"
     >
       <Image
         src={image}

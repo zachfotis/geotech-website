@@ -57,7 +57,7 @@ const services = [
     link: '/oil-and-gas',
   },
   {
-    title: 'Groundwater Wells',
+    title: 'Groundwater',
     text: 'We provide wireline logging services for groundwater wells, from exploration to production.',
     icon: GroundwaterIcon,
     link: '/groundwater',
