@@ -8,9 +8,9 @@ import HeroImage from '../../assets/images/hero.jpg';
 
 function Hero() {
   return (
-    <div className="relative flex-shrink-0 w-full min-h-full overflow-x-hidden px-5 pb-5">
+    <div className="flex-shrink-0 w-full min-h-[calc(100vh-90px)] overflow-x-hidden px-5 mt-[90px]">
       <div className="w-full max-w-[1280px] mx-auto flex flex-col justify-start items-start gap-5">
-        <h1 className="text-4xl font-[700] leading-normal">
+        <h1 className="text-4xl font-[700] leading-normal mt-20">
           <span className="text-3xl font-[500]">Welcome to</span> <br /> Geotech Energy Services
         </h1>
         <p className="text-xl ml-1 max-w-[800px]">

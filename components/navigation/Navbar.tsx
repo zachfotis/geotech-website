@@ -27,7 +27,7 @@ function Navbar() {
   }, []);
 
   return (
-    <nav className="w-full bg-white shadow-lg font-[400] p-5 text-black antialiased fixed top-0 z-50">
+    <nav className="w-full h-[90px] bg-white shadow-lg font-[400] p-5 text-black antialiased fixed top-0 z-50">
       <div className="w-full max-w-[1280px] h-fit m-auto flex justify-between items-center">
         <motion.div whileHover={{ scale: 1.05 }} className="tablet:hidden">
           <Link href="/">

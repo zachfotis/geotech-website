@@ -6,7 +6,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html>
       <body className="w-full min-h-screen bg-slate-50">
         <Navbar />
-        <div className="w-full h-screen flex flex-col justify-top items-center gap-20 mt-[150px]">{children}</div>
+        <div className="w-full min-h-screen flex flex-col justify-top items-center gap-20 mb-[100px]">{children}</div>
       </body>
     </html>
   );
