@@ -24,16 +24,16 @@ function Map() {
 
   return (
     <motion.div
-      className="w-full max-w-[1280px] mx-auto flex flex-col justify-start items-start gap-10 px-5 tablet:px-5"
+      className="w-full max-w-[1280px] mx-auto flex flex-col justify-start items-start gap-14 px-5 tablet:px-5"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
       <h1 className="relative text-3xl font-[500] leading-normal">
         Our activity around the world!
-        <span className="absolute w-[250px] h-[5px] bg-primary bottom-[-10px] left-0 shadow-lg"></span>
+        <span className="absolute w-[250px] mobile:w-full h-[5px] bg-primary bottom-[-10px] left-0 shadow-lg"></span>
       </h1>
-      <p className="relative text-lg text-justify leading-relaxed font-[400] mt-5">
+      <p className="relative text-lg text-justify leading-relaxed font-[300] mt-7 px-5">
         GEOTECH S.A. is an integrated Oil, Gas and Underground Energy Resources Services provider with Main Offices in
         Kavala, Greece. Founded in 1993, it has set the goal to be competent, competitive and productive, where
         professionalism is the key role from its 1st spark on the course. Providing{' '}
@@ -42,8 +42,8 @@ function Map() {
         its geographical reach across the <strong>Europe</strong>, <strong>Middle East</strong> and{' '}
         <strong>Africa</strong>. The Company has consistently delivered success and achieved its Clients' goals with
         standing quality and reputation.
-        <RiDoubleQuotesL className="text-4xl text-primary absolute -top-6 -left-10 desktop:-top-10 desktop:left-0" />
-        <RiDoubleQuotesR className="text-4xl text-primary absolute -bottom-5 -right-10 desktop:-bottom-10 desktop:right-0" />
+        <RiDoubleQuotesL className="text-4xl text-primary absolute -top-6 -left-5 desktop:-top-10 desktop:left-0" />
+        <RiDoubleQuotesR className="text-4xl text-primary absolute -bottom-5 -right-5 desktop:-bottom-10 desktop:right-0" />
       </p>
       <div className="w-full mt-5">
         <MapContainer

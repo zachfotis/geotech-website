@@ -1,3 +1,5 @@
+'use client';
+
 import ServiceCard from './ServiceCard';
 import GeothermalIcon from '../../assets/icons/volcano.png';
 import OilAndGasIcon from '../../assets/icons/oil-rig.png';
