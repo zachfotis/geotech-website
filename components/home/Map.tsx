@@ -4,7 +4,6 @@ import dynamic from 'next/dynamic';
 const MapContainer = dynamic(() => import('react-leaflet').then((mod) => mod.MapContainer), { ssr: false });
 const Marker = dynamic(() => import('react-leaflet').then((mod) => mod.Marker), { ssr: false });
 const TileLayer = dynamic(() => import('react-leaflet').then((mod) => mod.TileLayer), { ssr: false });
-const Polygon = dynamic(() => import('react-leaflet').then((mod) => mod.Polygon), { ssr: false });
 import 'leaflet/dist/leaflet.css';
 import { RiDoubleQuotesL, RiDoubleQuotesR } from 'react-icons/ri';
 import { motion } from 'framer-motion';
@@ -33,7 +32,7 @@ function Map() {
         Our activity around the world!
         <span className="absolute w-[250px] mobile:w-full h-[5px] bg-primary bottom-[-10px] left-0 shadow-lg"></span>
       </h1>
-      <p className="relative text-lg text-justify leading-relaxed font-[300] mt-7 px-5">
+      <p className="relative text-base text-justify leading-relaxed font-[300] mt-7 px-5">
         GEOTECH S.A. is an integrated Oil, Gas and Underground Energy Resources Services provider with Main Offices in
         Kavala, Greece. Founded in 1993, it has set the goal to be competent, competitive and productive, where
         professionalism is the key role from its 1st spark on the course. Providing{' '}

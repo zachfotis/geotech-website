@@ -134,22 +134,19 @@ function Navbar() {
                   About us
                 </Link>
               </motion.li>
-              <motion.li
-                className="px-3 py-1 rounded-lg text-primary hover:bg-primary hover:text-white
+              <Link href="/quote">
+                <motion.li
+                  className="px-3 py-1 rounded-lg text-primary hover:bg-primary hover:text-white
                 outline-primary outline outline-1 outline-solid"
-                initial={isTablet && { x: '500px' }}
-                animate={{ x: 0 }}
-                exit={{ x: '500px' }}
-                transition={{ duration: 0.5, delay: 0.4, type: 'spring', stiffness: 100 }}
-                onClick={() => setShowMenu(!showMenu)}
-              >
-                <Link
-                  href="/quote"
-                  className={`${pathname === '/quote' ? 'font-[500] border-b border-1 border-black' : ''}`}
+                  initial={isTablet && { x: '500px' }}
+                  animate={{ x: 0 }}
+                  exit={{ x: '500px' }}
+                  transition={{ duration: 0.5, delay: 0.4, type: 'spring', stiffness: 100 }}
+                  onClick={() => setShowMenu(!showMenu)}
                 >
                   Get a Quote
-                </Link>
-              </motion.li>
+                </motion.li>
+              </Link>
               <motion.li
                 className="tablet:absolute tablet:top-5 tablet:left-5 hover:text-secondary"
                 initial={isTablet && { y: '-200px' }}

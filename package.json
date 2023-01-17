@@ -13,7 +13,9 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.7.1",
     "react-leaflet": "^4.2.0",
-    "react-scroll-parallax": "^3.3.2"
+    "react-particles": "^2.7.1",
+    "react-scroll-parallax": "^3.3.2",
+    "tsparticles": "^2.7.1"
   },
   "devDependencies": {
     "@types/leaflet": "^1.9.0",
