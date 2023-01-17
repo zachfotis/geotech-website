@@ -10,6 +10,8 @@ import type { Container, Engine } from 'tsparticles-engine';
 import { loadFull } from 'tsparticles';
 import { motion } from 'framer-motion';
 import { FcHome, FcAddressBook, FcPhone } from 'react-icons/fc';
+import FacebookIcon from '../../assets/icons/facebook.png';
+import LinkedinIcon from '../../assets/icons/linkedin.png';
 
 import LogoSmallImage from '../../assets/images/logo.png';
 
@@ -113,7 +115,6 @@ function Footer() {
           </Link>
         </div>
       </div>
-
       <div className="w-full flex flex-col justify-start items-center gap-3 z-10">
         <motion.div whileHover={{ scale: 1.05 }}>
           <Link href="/">
@@ -121,6 +122,18 @@ function Footer() {
           </Link>
         </motion.div>
         <h1 className="text-xl">Geotech S.A.</h1>
+        <div className="flex justify-center items-center gap-3">
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Link href="https://www.facebook.com/100066710522056" target="_blank" rel="noreferrer">
+              <Image src={FacebookIcon} alt="Facebook" width={30} height={30} />
+            </Link>
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Link href="https://www.linkedin.com/company/geotech-s-a" target="_blank" rel="noreferrer">
+              <Image src={LinkedinIcon} alt="Linkedin" width={30} height={30} />
+            </Link>
+          </motion.div>
+        </div>
         <p className="text-sm font-[200]">© {new Date().getFullYear()} Geotech S.A. All rights reserved.</p>
       </div>
     </div>
