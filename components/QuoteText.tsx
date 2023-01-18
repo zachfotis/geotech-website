@@ -4,7 +4,7 @@ import LogoImage from '../assets/images/logo.png';
 
 function QuoteText({ children }: { children: React.ReactNode }) {
   return (
-    <div className="max-w-[1280px] relative p-10 rounded-2xl shadow-md overflow-hidden">
+    <div className="max-w-[1280px] relative p-10 rounded-2xl shadow-sm overflow-hidden">
       <div className="p-5">{children}</div>
       <RiDoubleQuotesL className="text-4xl text-primary absolute top-5 left-5" />
       <RiDoubleQuotesR className="text-4xl text-primary absolute bottom-5 right-5" />

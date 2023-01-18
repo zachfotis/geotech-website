@@ -24,7 +24,7 @@ function Clients() {
       transition={{ duration: 0.5 }}
     >
       <h1 className="relative text-3xl font-[500] leading-normal">
-        Our Clients
+        Clients Who Trust Us
         <span className="absolute w-[250px] mobile:w-full h-[5px] bg-primary bottom-[-10px] left-0 shadow-lg"></span>
       </h1>
 
