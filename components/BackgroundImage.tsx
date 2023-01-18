@@ -3,7 +3,7 @@ import Image, { StaticImageData } from 'next/image';
 function BackgroundImage({ image }: { image: StaticImageData }) {
   return (
     <div
-      className="before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:-z-10 before:h-full before:opacity-100
+      className="before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:-z-10 before:h-full before:opacity-90
     before:bg-gradient-to-b before:from-slate-50 before:via-slate-50 before:to-transparent"
     >
       <Image

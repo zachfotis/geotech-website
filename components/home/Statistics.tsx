@@ -1,8 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ParallaxProvider, ParallaxBanner } from 'react-scroll-parallax';
-import Prinos from '../../assets/images/prinos.jpg';
+import Card from '../Card';
+
+import ExperienceImage from '../../assets/images/experience.jpg';
+import LoggingImage from '../../assets/images/logging.jpg';
+import ProjectsImage from '../../assets/images/projects.webp';
 
 function Statistics() {
   return (
@@ -16,27 +19,32 @@ function Statistics() {
         What we have done!
         <span className="absolute w-[250px] mobile:w-full h-[5px] bg-primary bottom-[-10px] left-0 shadow-lg"></span>
       </h1>
-      <ParallaxProvider>
-        <ParallaxBanner layers={[{ image: Prinos.src, speed: -15 }]} className="w-full h-[600px] rounded-md">
-          <div className="w-full h-full max-w-[1280px] mx-auto flex justify-between items-stretch flex-wrap snap-x laptop:flex-nowrap laptop:overflow-scroll">
-            {statistics.map((statistic) => (
-              <div
-                key={statistic.text}
-                className="flex-1 flex-shrink-0 flex flex-col justify-center items-center overflow-hidden snap-center snap-proximity
-                      laptop:w-full laptop:min-w-full"
-              >
-                <div
-                  className="w-full backdrop-blur-lg backdrop-brightness-110 border-y border-y-1 border-y-secondary
-                      flex flex-col justify-center items-center gap-2 py-5 text-accent"
-                >
-                  <h1 className="text-6xl font-[600]">{statistic.number}</h1>
-                  <p className="text-lg text-[500]">{statistic.text}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </ParallaxBanner>
-      </ParallaxProvider>
+      <div className="w-full h-[600px] flex justify-start items-stretch snap-x laptop:overflow-x-auto rounded-lg overflow-hidden">
+        <Card
+          image={ExperienceImage}
+          title="30"
+          text="Years of Experience"
+          titleClass="text-[96px] font-[500]"
+          subTitleClass="text-[36px] font-[300]"
+          isRounded={false}
+        />
+        <Card
+          image={LoggingImage}
+          title="543"
+          text="Km of Logging"
+          titleClass="text-[96px] font-[500]"
+          subTitleClass="text-[36px] font-[300]"
+          isRounded={false}
+        />
+        <Card
+          image={ProjectsImage}
+          title="320"
+          text="Projects Completed"
+          titleClass="text-[96px] font-[500]"
+          subTitleClass="text-[36px] font-[300]"
+          isRounded={false}
+        />
+      </div>
     </motion.div>
   );
 }

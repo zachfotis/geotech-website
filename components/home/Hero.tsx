@@ -1,16 +1,13 @@
 'use client';
 
-import ServiceCard from './ServiceCard';
-import GeothermalIcon from '../../assets/icons/volcano.png';
-import OilAndGasIcon from '../../assets/icons/oil-rig.png';
-import GroundwaterIcon from '../../assets/icons/water-well.png';
 import Link from 'next/link';
 import BackgroundImage from '../BackgroundImage';
 import HeroImage from '../../assets/images/hero.jpg';
+import Services from './Services';
 
 function Hero() {
   return (
-    <div className="flex-shrink-0 w-full min-h-[calc(100vh-90px)] overflow-x-hidden px-5 mt-[90px]">
+    <div className="flex-shrink-0 w-full min-h-[calc(100vh-90px)] overflow-x-hidden px-5 mt-[60px]">
       <div className="w-full max-w-[1280px] mx-auto flex flex-col justify-start items-start gap-5">
         <h1 className="text-4xl font-[700] leading-normal mt-20">
           <span className="text-3xl font-[500]">Welcome to</span> <br /> Geotech Energy Services
@@ -26,17 +23,7 @@ function Hero() {
         >
           Explore Services
         </Link>
-        <div className="relative w-full mt-20 flex justify-start items-stretch gap-10 laptop:overflow-scroll snap-x tablet:mt-10">
-          {services.map((service) => (
-            <ServiceCard
-              key={service.title}
-              title={service.title}
-              text={service.text}
-              icon={service.icon}
-              link={service.link}
-            />
-          ))}
-        </div>
+        <Services />
       </div>
       <BackgroundImage image={HeroImage} />
     </div>
@@ -44,24 +31,3 @@ function Hero() {
 }
 
 export default Hero;
-
-const services = [
-  {
-    title: 'Geothermal Energy',
-    text: 'We execute geothermal development programs, from characterization and drilling to stimulation and production.',
-    icon: GeothermalIcon,
-    link: '/geothermal',
-  },
-  {
-    title: 'Oil and Gas Wells',
-    text: 'We provide wireline logging services for oil and gas wells, from exploration to production.',
-    icon: OilAndGasIcon,
-    link: '/oil-and-gas',
-  },
-  {
-    title: 'Groundwater',
-    text: 'We provide wireline logging services for groundwater wells, from exploration to production.',
-    icon: GroundwaterIcon,
-    link: '/groundwater',
-  },
-];

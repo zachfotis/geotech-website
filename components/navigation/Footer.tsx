@@ -1,6 +1,5 @@
 'use client';
 
-import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useCallback } from 'react';
@@ -9,20 +8,15 @@ import Particles from 'react-particles';
 import type { Container, Engine } from 'tsparticles-engine';
 import { loadFull } from 'tsparticles';
 import { motion } from 'framer-motion';
+
 import { FcHome, FcAddressBook, FcPhone } from 'react-icons/fc';
 import FacebookIcon from '../../assets/icons/facebook.png';
 import LinkedinIcon from '../../assets/icons/linkedin.png';
-
 import LogoSmallImage from '../../assets/images/logo.png';
 
-const MapContainer = dynamic(() => import('react-leaflet').then((mod) => mod.MapContainer), { ssr: false });
-const Marker = dynamic(() => import('react-leaflet').then((mod) => mod.Marker), { ssr: false });
-const TileLayer = dynamic(() => import('react-leaflet').then((mod) => mod.TileLayer), { ssr: false });
-import 'leaflet/dist/leaflet.css';
+import Map from '../Map';
 
 function Footer() {
-  const centerPosition: [number, number] = [40.951379234671556, 24.426109892556138];
-
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadFull(engine);
   }, []);
@@ -61,24 +55,12 @@ function Footer() {
           </div>
         </div>
         <div className="w-[350px] min-h-[300px] relative flex flex-col">
-          <h1 className="text-xl">Map</h1>
+          <h1 className="text-xl">Office Location</h1>
           <div className="w-[40%] h-[2px] bg-primary mt-1"></div>
           <p className="text-sm text-justify font-[200] mt-3 mb-5">
             Our office is located at Perigiali 83, Kavala 652 01 and it is easily accessible by public transportation.
           </p>
-          <MapContainer
-            center={centerPosition}
-            zoom={14}
-            scrollWheelZoom={true}
-            style={{ width: '100%', height: '100%', zIndex: 0 }}
-            className="rounded-xl overflow-hidden shadow-lg"
-          >
-            <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            <Marker title="Geotech S.A." position={centerPosition} />
-          </MapContainer>
+          <Map coords={coords} zoom={14} scroll={false} />
         </div>
         <div className="w-[350px]">
           <h1 className="text-xl">Contact Information</h1>
@@ -213,3 +195,13 @@ const options = {
   },
   detectRetina: true,
 };
+
+const coords = [
+  {
+    name: 'Geotech S.A.',
+    coord: {
+      lat: 40.951379234671556,
+      lng: 24.426109892556138,
+    },
+  },
+];
