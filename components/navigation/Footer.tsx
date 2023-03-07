@@ -4,12 +4,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useCallback } from 'react';
 
-import Particles from 'react-particles';
-import type { Container, Engine } from 'tsparticles-engine';
-import { loadFull } from 'tsparticles';
 import { motion } from 'framer-motion';
+import Particles from 'react-particles';
+import { loadFull } from 'tsparticles';
+import type { Container, Engine } from 'tsparticles-engine';
 
-import { FcHome, FcAddressBook, FcPhone } from 'react-icons/fc';
+import { FcAddressBook, FcHome, FcPhone } from 'react-icons/fc';
 import FacebookIcon from '../../assets/icons/facebook.png';
 import LinkedinIcon from '../../assets/icons/linkedin.png';
 import LogoSmallImage from '../../assets/images/logo.png';
@@ -24,12 +24,12 @@ function Footer() {
   const particlesLoaded = useCallback(async (container: Container | undefined) => {}, []);
 
   return (
-    <div className="relative w-full bg-accent px-5 pb-10 text-white flex flex-col justify-start items-center gap-20">
+    <div className="relative w-full bg-accent px-5 pb-10 text-white flex flex-col justify-stretch items-center gap-20">
       <Particles
         id="tsparticles"
         init={particlesInit}
         loaded={particlesLoaded}
-        options={options}
+        // options={options}
         className="opacity-30"
       />
       <div className="w-full max-w-[1280px] flex justify-evenly items-stretch flex-wrap gap-20 mobile:gap-10 z-10">
@@ -125,11 +125,6 @@ function Footer() {
 export default Footer;
 
 const options = {
-  fpsLimit: 120,
-  style: {
-    position: 'absolute',
-    height: '100%',
-  },
   interactivity: {
     events: {
       onClick: {

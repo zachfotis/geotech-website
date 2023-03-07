@@ -8,8 +8,22 @@ module.exports = {
       },
       colors: {
         primary: '#00ABB3',
-        secondary: '#6C7B95',
+        secondary: '#0AC99E',
         accent: '#464159',
+        black: '#273838',
+        grey: '#4F6364',
+        white: '#FFFFFF',
+      },
+      fontSize: {
+        title: '6rem',
+        h1: '3rem',
+        h2: '2.4rem',
+        h3: '1.9rem',
+        h4: '1.6rem',
+        textLG: '1.3rem',
+        text: '1rem',
+        textSM: '0.9rem',
+        textXS: '0.8rem',
       },
       screens: {
         mobile: { max: '650px' },

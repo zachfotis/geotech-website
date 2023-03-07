@@ -1,14 +1,13 @@
 'use client';
+import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import LogoImage from '../../assets/images/logo-full.png';
-import LogoSmallImage from '../../assets/images/logo.png';
-import { motion, AnimatePresence } from 'framer-motion';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { SlClose } from 'react-icons/sl';
-import { useEffect, useState } from 'react';
-import { FaUser } from 'react-icons/fa';
-import { usePathname } from 'next/navigation';
+import LogoSmallImage from '../../assets/images/logo.png';
+import LogoImage from '../../assets/logos/logo-full-notext.png';
 
 function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
@@ -27,23 +26,18 @@ function Navbar() {
   }, []);
 
   return (
-    <nav className="w-full h-[90px] bg-white shadow-lg font-[400] p-5 text-black antialiased fixed top-0 z-50">
-      <div className="w-full max-w-[1280px] h-fit m-auto flex justify-between items-center">
-        <motion.div whileHover={{ scale: 1.05 }} className="tablet:hidden">
+    <nav className="w-full bg-white shadow-lg font-[400] px-5 py-3 text-black antialiased fixed top-0 z-50">
+      <div className="w-full max-w-[1440px] h-fit m-auto flex justify-between items-center">
+        <motion.div whileHover={{ scale: 1.05 }}>
           <Link href="/">
             <Image src={LogoImage} alt="Company Logo" width={150} />
-          </Link>
-        </motion.div>
-        <motion.div whileHover={{ scale: 1.05 }} className="hidden tablet:block">
-          <Link href="/">
-            <Image src={LogoSmallImage} alt="Company Logo" width={40} />
           </Link>
         </motion.div>
         <AnimatePresence mode="wait">
           {((isTablet && showMenu) || !isTablet) && (
             <motion.ul
-              className="flex justify-between items-center gap-5 p-2 text-sm
-            tablet:absolute tablet:w-full tablet:h-screen tablet:top-0 tablet:left-0 tablet:flex-col tablet:justify-center 
+              className="flex justify-between items-center gap-10 p-2 text-sm
+              tablet:absolute tablet:w-full tablet:h-screen tablet:top-0 tablet:left-0 tablet:flex-col tablet:justify-center 
             tablet:bg-slate-50 tablet:text-xl tablet:gap-10 overflow-hidden"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -62,78 +56,25 @@ function Navbar() {
                   <Image src={LogoSmallImage} alt="Company Logo" width={70} />
                 </Link>
               </motion.li>
-              <motion.li
-                className="hover:text-secondary"
-                initial={isTablet && { x: '500px' }}
-                animate={{ x: 0 }}
-                exit={{ x: '500px' }}
-                transition={{ duration: 0.5, delay: 0.1, type: 'spring', stiffness: 100 }}
-                onClick={() => setShowMenu(!showMenu)}
-              >
-                <Link href="/" className={`${pathname === '/' ? 'font-[500] border-b border-1 border-black' : ''}`}>
-                  Home
-                </Link>
-              </motion.li>
-              <motion.li
-                className="hover:text-secondary"
-                initial={isTablet && { x: '500px' }}
-                animate={{ x: 0 }}
-                exit={{ x: '500px' }}
-                transition={{ duration: 0.5, delay: 0.2, type: 'spring', stiffness: 100 }}
-                onClick={() => setShowMenu(!showMenu)}
-              >
-                <Link
-                  href="/services"
-                  className={`${pathname === '/services' ? 'font-[500] border-b border-1 border-black' : ''}`}
+
+              {menuitems.map((item, index) => (
+                <motion.li
+                  key={index + item.title}
+                  className="hover:text-secondary"
+                  initial={isTablet && { x: '500px' }}
+                  animate={{ x: 0 }}
+                  exit={{ x: '500px' }}
+                  transition={{ duration: 0.5, delay: 0.1, type: 'spring', stiffness: 100 }}
+                  onClick={() => setShowMenu(!showMenu)}
                 >
-                  Services
-                </Link>
-              </motion.li>
-              <motion.li
-                className="hover:text-secondary"
-                initial={isTablet && { x: '500px' }}
-                animate={{ x: 0 }}
-                exit={{ x: '500px' }}
-                transition={{ duration: 0.5, delay: 0.3, type: 'spring', stiffness: 100 }}
-                onClick={() => setShowMenu(!showMenu)}
-              >
-                <Link
-                  href="/projects"
-                  className={`${pathname === '/projects' ? 'font-[500] border-b border-1 border-black' : ''}`}
-                >
-                  Projects
-                </Link>
-              </motion.li>
-              <motion.li
-                className="hover:text-secondary"
-                initial={isTablet && { x: '500px' }}
-                animate={{ x: 0 }}
-                exit={{ x: '500px' }}
-                transition={{ duration: 0.5, delay: 0.4, type: 'spring', stiffness: 100 }}
-                onClick={() => setShowMenu(!showMenu)}
-              >
-                <Link
-                  href="/academy"
-                  className={`${pathname === '/academy' ? 'font-[500] border-b border-1 border-black' : ''}`}
-                >
-                  Academy
-                </Link>
-              </motion.li>
-              <motion.li
-                className="hover:text-secondary"
-                initial={isTablet && { x: '500px' }}
-                animate={{ x: 0 }}
-                exit={{ x: '500px' }}
-                transition={{ duration: 0.5, delay: 0.4, type: 'spring', stiffness: 100 }}
-                onClick={() => setShowMenu(!showMenu)}
-              >
-                <Link
-                  href="/about"
-                  className={`${pathname === '/about' ? 'font-[500] border-b border-1 border-black' : ''}`}
-                >
-                  About us
-                </Link>
-              </motion.li>
+                  <Link
+                    href={item.link}
+                    className={`${pathname === item.link ? 'font-[500] border-b border-1 border-black' : ''}`}
+                  >
+                    {item.title}
+                  </Link>
+                </motion.li>
+              ))}
               <Link href="/quote">
                 <motion.li
                   className="px-3 py-1 rounded-lg text-primary hover:bg-primary hover:text-white
@@ -147,18 +88,6 @@ function Navbar() {
                   Get a Quote
                 </motion.li>
               </Link>
-              <motion.li
-                className="tablet:absolute tablet:top-5 tablet:left-5 hover:text-secondary"
-                initial={isTablet && { y: '-200px' }}
-                animate={{ y: 0 }}
-                exit={{ y: '-200px' }}
-                transition={{ duration: 0.5 }}
-                onClick={() => setShowMenu(!showMenu)}
-              >
-                <Link href="https://clients.geotech-energy.com">
-                  <FaUser className="text-2xl tablet:text-3xl" />
-                </Link>
-              </motion.li>
               <motion.li
                 className="hidden tablet:block absolute top-5 right-5 hover:text-secondary"
                 initial={isTablet && { y: '-200px' }}
@@ -181,3 +110,30 @@ function Navbar() {
 }
 
 export default Navbar;
+
+const menuitems = [
+  {
+    title: 'Home',
+    link: '/',
+  },
+  {
+    title: 'Services',
+    link: '/services',
+  },
+  {
+    title: 'Projects',
+    link: '/projects',
+  },
+  {
+    title: 'Academy',
+    link: '/academy',
+  },
+  {
+    title: 'About us',
+    link: '/about',
+  },
+  {
+    title: 'Login',
+    link: '/login',
+  },
+];
