@@ -67,7 +67,7 @@ function Hero({
           />
         </h1>
         {/* Text */}
-        <p className="w-[80vw] text-h3 text-white font-[300] mobile:text-h4">
+        <p className="w-[80%] text-h3 text-white font-[300] mobile:text-h4">
           <Balancer>{text}</Balancer>
         </p>
         {/* Button - Optional */}

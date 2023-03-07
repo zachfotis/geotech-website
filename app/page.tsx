@@ -1,5 +1,7 @@
 import BackgroundImage from '@/assets/images/background1.jpg';
 import Hero from '@/components/common/Hero';
+import ImageText from '@/components/common/ImageText';
+import Section from '@/components/common/Section';
 
 function page() {
   return (
@@ -15,6 +17,12 @@ function page() {
           url: '/services',
         }}
       />
+      <Section
+        title="About Us"
+        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+      >
+        <ImageText />
+      </Section>
     </>
   );
 }
