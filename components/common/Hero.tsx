@@ -1,17 +1,16 @@
 'use client';
-import Image, { StaticImageData } from 'next/image';
 import Balancer from 'react-wrap-balancer';
 import Button from './Button';
 
 interface HeroProps {
-  backgroundImage: StaticImageData;
+  footage: JSX.Element;
   title: string;
   text: string;
   button?: HeroButton;
 }
 
 function Hero({
-  backgroundImage,
+  footage,
   title,
   text,
   button = {
@@ -28,17 +27,12 @@ function Hero({
     >
       {/* Background Image */}
       <div className="absolute top-0 left-0 w-full h-full z-0">
-        <Image
-          src={backgroundImage}
-          alt="Background Image"
-          width={1920}
-          height={1080}
-          className="w-full h-full object-cover saturate-[130%]"
-        />
+        {footage}
+
         {/* Top Layer - Black */}
         <div
           className="absolute top-0 left-0 w-full h-full 
-          bg-[#000] opacity-30 z-10"
+          bg-[#000] opacity-10 z-10"
         ></div>
       </div>
       {/* Body */}

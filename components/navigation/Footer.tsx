@@ -7,14 +7,14 @@ import { useCallback } from 'react';
 import { motion } from 'framer-motion';
 import Particles from 'react-particles';
 import { loadFull } from 'tsparticles';
-import type { Container, Engine } from 'tsparticles-engine';
+import type { Container, Engine, ISourceOptions } from 'tsparticles-engine';
 
 import { FcAddressBook, FcHome, FcPhone } from 'react-icons/fc';
 import FacebookIcon from '../../assets/icons/facebook.png';
 import LinkedinIcon from '../../assets/icons/linkedin.png';
 import LogoSmallImage from '../../assets/images/logo.png';
 
-import Map from '../Map';
+import Map from '../common/Map';
 
 function Footer() {
   const particlesInit = useCallback(async (engine: Engine) => {
@@ -24,13 +24,13 @@ function Footer() {
   const particlesLoaded = useCallback(async (container: Container | undefined) => {}, []);
 
   return (
-    <div className="relative w-full bg-accent px-5 pb-10 text-white flex flex-col justify-stretch items-center gap-20">
+    <div className="relative w-full bg-accent px-5 py-10 text-white flex flex-col justify-stretch items-center gap-20">
       <Particles
         id="tsparticles"
         init={particlesInit}
         loaded={particlesLoaded}
-        // options={options}
-        className="opacity-30"
+        options={options}
+        className="flex-1 absolute top-0 left-0 w-full h-full opacity-30"
       />
       <div className="w-full max-w-[1280px] flex justify-evenly items-stretch flex-wrap gap-20 mobile:gap-10 z-10">
         <div className="w-[350px]">
@@ -124,7 +124,9 @@ function Footer() {
 
 export default Footer;
 
-const options = {
+const options: ISourceOptions = {
+  fullScreen: false,
+  fpsLimit: 120,
   interactivity: {
     events: {
       onClick: {

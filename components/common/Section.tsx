@@ -1,3 +1,6 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import Balancer from 'react-wrap-balancer';
 
 interface SectionProps {
@@ -8,7 +11,12 @@ interface SectionProps {
 
 function Section({ title, text = '', children }: SectionProps) {
   return (
-    <section className="my-[100px] w-full px-20 tablet:px-10">
+    <motion.section
+      className="my-[100px] w-full px-20 tablet:px-10"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="max-w-[1440px] mx-auto flex flex-col justify-start items-start gap-[10px]">
         <h1 className="w-full relative text-black text-h1 font-[500]">
           <Balancer>{title}</Balancer>
@@ -26,7 +34,7 @@ function Section({ title, text = '', children }: SectionProps) {
         <p className="w-full text-text">{text}</p>
         <div className="w-full flex flex-col justify-start items-center gap-20 mt-10">{children}</div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 

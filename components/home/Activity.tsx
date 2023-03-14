@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Map from '../Map';
+import Map from '../common/Map';
 
 function Activity() {
   return (

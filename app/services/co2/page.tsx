@@ -1,10 +1,15 @@
-import BackgroundImage from '@/assets/images/background3.webp';
+import backgroundImage from '@/assets/images/background3.webp';
 import Hero from '@/components/common/Hero';
+import HeroImage from '@/components/common/HeroImage';
 
 function page() {
   return (
     <>
-      <Hero backgroundImage={BackgroundImage} title={homeData.hero.title} text={homeData.hero.text} />
+      <Hero
+        footage={<HeroImage backgroundImage={backgroundImage} />}
+        title={homeData.hero.title}
+        text={homeData.hero.text}
+      />
     </>
   );
 }

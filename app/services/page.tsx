@@ -1,5 +1,6 @@
-import BackgroundImage from '@/assets/images/background2.jpg';
+import backgroundImage from '@/assets/images/background2.jpg';
 import Hero from '@/components/common/Hero';
+import HeroImage from '@/components/common/HeroImage';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -11,7 +12,11 @@ export const metadata: Metadata = {
 function page() {
   return (
     <>
-      <Hero backgroundImage={BackgroundImage} title={homeData.hero.title} text={homeData.hero.text} />
+      <Hero
+        footage={<HeroImage backgroundImage={backgroundImage} />}
+        title={homeData.hero.title}
+        text={homeData.hero.text}
+      />
     </>
   );
 }
