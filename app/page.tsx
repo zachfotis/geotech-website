@@ -24,7 +24,7 @@ function page() {
   return (
     <>
       <Hero
-        footage={<HeroVideo src="/videos/wind-turbines.mp4" />}
+        footage={<HeroVideo src="/videos/bg1b.mp4" />}
         title={homeData.hero.title}
         text={homeData.hero.text}
         button={{

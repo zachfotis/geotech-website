@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { SlClose } from 'react-icons/sl';
+import AcademyIcon from '../../assets/icons/academy.png';
 import LogoSmallImage from '../../assets/images/logo.png';
 import LogoImage from '../../assets/logos/logo-full-notext.png';
 
@@ -69,8 +70,11 @@ function Navbar() {
                 >
                   <Link
                     href={item.link}
-                    className={`${pathname === item.link ? 'font-[500] border-b border-1 border-black' : ''}`}
+                    className={`flex items-center gap-1 p-1 ${
+                      pathname === item.link ? 'font-[500] border-b border-1 border-black' : ''
+                    }`}
                   >
+                    {item.title === 'Academy' && <img src={AcademyIcon.src} alt="Academy Icon" width={20} />}
                     {item.title}
                   </Link>
                 </motion.li>
