@@ -5,6 +5,10 @@ import Activity4Image from '@/assets/cards/activity4.jpg';
 import Stats1Image from '@/assets/cards/stats1.png';
 import Stats2Image from '@/assets/cards/stats2.png';
 import Stats3Image from '@/assets/cards/stats3.png';
+import QualityImage from '@/assets/images/IMS.png';
+import ISO1Image from '@/assets/images/iso1.png';
+import ISO2Image from '@/assets/images/iso2.png';
+import ISO3Image from '@/assets/images/iso3.png';
 import SelectedImage from '@/assets/logos/logo.png';
 import Hero from '@/components/common/Hero';
 import HeroVideo from '@/components/common/HeroVideo';
@@ -12,6 +16,8 @@ import ImageText from '@/components/common/ImageText';
 import Map from '@/components/common/Map';
 import Section from '@/components/common/Section';
 import StatCard from '@/components/common/StatCard';
+import Clients from '@/components/home/Clients';
+import Image from 'next/image';
 
 function page() {
   return (
@@ -50,6 +56,24 @@ function page() {
           <StatCard image={Activity4Image} text={homeData.sectionSolutions.stats.card4} />
         </div>
       </Section>
+
+      <Section title={homeData.sectionQuality.title} text={homeData.sectionQuality.text}>
+        <ImageText
+          selectedImage={QualityImage}
+          text={homeData.sectionQuality.innerText}
+          imagePositionLeft={false}
+          quotes={false}
+        />
+        <div className="w-full flex justify-center items-center gap-20 flex-wrap">
+          <Image src={ISO1Image} width={100} height={100} alt="ISO 9001" />
+          <Image src={ISO2Image} width={100} height={100} alt="ISO 14001" />
+          <Image src={ISO3Image} width={100} height={100} alt="ISO 45001" />
+        </div>
+      </Section>
+
+      <Section title={homeData.sectionClients.title} text={homeData.sectionClients.text}>
+        <Clients />
+      </Section>
     </>
   );
 }
@@ -64,8 +88,10 @@ const homeData = {
   sectionAboutUs: {
     title: 'About Us',
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
-    innerText:
-      'GEOTECH S.A. is an integrated Oil, Gas and Underground Energy Resources Services provider with Main Offices in Kavala, Greece. Founded in 1993, it has set the goal to be competent, competitive and productive, where professionalism is the key role from its 1st spark on the course. Providing Engineering Solutions and Services through the newest and most efficient applications and yet perceived as such, GEOTECH S.A. became a trusted service provider across the country. GEOTECH S.A. also extended its geographical reach across the Europe, Middle East and Africa. The Company has consistently delivered success and achieved its Clients goals with standing quality and reputation.',
+    innerText: {
+      __html:
+        'GEOTECH S.A. is an integrated Oil, Gas and Underground Energy Resources Services provider with Main Offices in Kavala, Greece. Founded in 1993, it has set the goal to be competent, competitive and productive, where professionalism is the key role from its 1st spark on the course. Providing Engineering Solutions and Services through the newest and most efficient applications and yet perceived as such, GEOTECH S.A. became a trusted service provider across the country. GEOTECH S.A. also extended its geographical reach across the Europe, Middle East and Africa. The Company has consistently delivered success and achieved its Clients goals with standing quality and reputation.',
+    },
     stats: {
       card1: {
         value: new Date().getFullYear() - 1993,
@@ -107,6 +133,28 @@ const homeData = {
         label: 'We provide wireline logging services for groundwater wells, from exploration to production.',
       },
     },
+  },
+  sectionQuality: {
+    title: 'Quality Assurance',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
+    innerText: {
+      __html: `GEOTECH S.A. quality policy is to achieve sustained, profitable growth by providing services, which consistently satisfy the needs and expectations of its customers. This level of quality is achieved through adoption of an Integrated Management System that reflect the competence of the company to existing customers, potential customers, and independent auditing authorities. Achievement of this policy involves all staff, who is individually responsible for the quality of their work, resulting in a continually improving working environment for all.
+      </br>
+      </br>
+      <strong>Integrated Management System:</strong>
+      </br>
+      </br> 
+      <ul>
+        <li>- Quality Management System (<strong>ISO 9001:2015</strong>)</li>
+        <li>- Environmental Management System (<strong>ISO 14001:2015</strong>)</li>
+        <li>- Occupational Health and Safety Management System (<strong>ISO 45001:2018</strong>)</li>
+      </ul>
+      `,
+    },
+  },
+  sectionClients: {
+    title: 'Clients Who Trust Us',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
   },
 };
 
