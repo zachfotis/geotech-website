@@ -14,10 +14,11 @@ import Hero from '@/components/common/Hero';
 import HeroVideo from '@/components/common/HeroVideo';
 import ImageText from '@/components/common/ImageText';
 import Map from '@/components/common/Map';
+import RotatingImage from '@/components/common/RotatingImage';
 import Section from '@/components/common/Section';
+import SectionFullDark from '@/components/common/SectionFullDark';
 import StatCard from '@/components/common/StatCard';
 import Clients from '@/components/home/Clients';
-import Image from 'next/image';
 
 function page() {
   return (
@@ -33,9 +34,10 @@ function page() {
           url: '/services',
         }}
       />
+
       <Section title={homeData.sectionAboutUs.title} text={homeData.sectionAboutUs.text}>
         <ImageText selectedImage={SelectedImage} text={homeData.sectionAboutUs.innerText} />
-        <div className="w-full flex justify-between items-stretch gap-10 flex-wrap">
+        <div className="w-full flex justify-between items-stretch gap-5 flex-wrap">
           <StatCard image={Stats1Image} text={homeData.sectionAboutUs.stats.card1} textLG />
           <StatCard image={Stats2Image} text={homeData.sectionAboutUs.stats.card2} textLG />
           <StatCard image={Stats3Image} text={homeData.sectionAboutUs.stats.card3} textLG />
@@ -49,7 +51,7 @@ function page() {
       </Section>
 
       <Section title={homeData.sectionSolutions.title} text={homeData.sectionSolutions.text}>
-        <div className="w-full flex justify-between items-stretch gap-10 flex-wrap">
+        <div className="w-full flex justify-between items-stretch gap-5 flex-wrap">
           <StatCard image={Activity1Image} text={homeData.sectionSolutions.stats.card1} />
           <StatCard image={Activity2Image} text={homeData.sectionSolutions.stats.card2} />
           <StatCard image={Activity3Image} text={homeData.sectionSolutions.stats.card3} />
@@ -58,18 +60,18 @@ function page() {
       </Section>
 
       <Section title={homeData.sectionQuality.title} text={homeData.sectionQuality.text}>
-        <ImageText
-          selectedImage={QualityImage}
-          text={homeData.sectionQuality.innerText}
-          imagePositionLeft={false}
-          quotes={false}
-        />
-        <div className="w-full flex justify-center items-center gap-20 flex-wrap">
-          <Image src={ISO1Image} width={100} height={100} alt="ISO 9001" />
-          <Image src={ISO2Image} width={100} height={100} alt="ISO 14001" />
-          <Image src={ISO3Image} width={100} height={100} alt="ISO 45001" />
-        </div>
+        <ImageText selectedImage={QualityImage} text={homeData.sectionQuality.innerText} imagePositionLeft={false} />
       </Section>
+
+      <SectionFullDark>
+        <h1 className="text-h3 mobile:text-center">{homeData.sectionSuccess.title}</h1>
+        <p dangerouslySetInnerHTML={homeData.sectionSuccess.text} className="text-text font-[300] leading-loose" />
+        <div className="w-full flex justify-center items-center gap-16 flex-wrap mt-5">
+          <RotatingImage src={ISO1Image} width={80} height={80} alt="ISO 9001" delay={2} />
+          <RotatingImage src={ISO2Image} width={80} height={80} alt="ISO 14001" delay={1} />
+          <RotatingImage src={ISO3Image} width={80} height={80} alt="ISO 45001" />
+        </div>
+      </SectionFullDark>
 
       <Section title={homeData.sectionClients.title} text={homeData.sectionClients.text}>
         <Clients />
@@ -138,18 +140,25 @@ const homeData = {
     title: 'Quality Assurance',
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
     innerText: {
-      __html: `GEOTECH S.A. quality policy is to achieve sustained, profitable growth by providing services, which consistently satisfy the needs and expectations of its customers. This level of quality is achieved through adoption of an Integrated Management System that reflect the competence of the company to existing customers, potential customers, and independent auditing authorities. Achievement of this policy involves all staff, who is individually responsible for the quality of their work, resulting in a continually improving working environment for all.
-      </br>
-      </br>
-      <strong>Integrated Management System:</strong>
-      </br>
-      </br> 
-      <ul>
-        <li>- Quality Management System (<strong>ISO 9001:2015</strong>)</li>
-        <li>- Environmental Management System (<strong>ISO 14001:2015</strong>)</li>
-        <li>- Occupational Health and Safety Management System (<strong>ISO 45001:2018</strong>)</li>
-      </ul>
-      `,
+      __html: `At GEOTECH S.A., our <strong>quality policy</strong> is centered on achieving sustainable, profitable growth by consistently delivering services that meet or exceed our customers' needs and expectations. We achieve this level of quality by adopting an <strong>Integrated Management System</strong> that reflects our company's competence to existing and potential customers, as well as independent auditing authorities. To achieve this policy, all staff members are responsible for the quality of their work, which ultimately leads to a continually <strong>improving working environment</strong> for everyone.`,
+    },
+    text2: `
+    </br>
+    </br>
+    <strong>Integrated Management System:</strong>
+    </br>
+    </br> 
+    <ul>
+      <li>- Quality Management System (<strong>ISO 9001:2015</strong>)</li>
+      <li>- Environmental Management System (<strong>ISO 14001:2015</strong>)</li>
+      <li>- Occupational Health and Safety Management System (<strong>ISO 45001:2018</strong>)</li>
+    </ul>
+    `,
+  },
+  sectionSuccess: {
+    title: 'STRATEGY TO CONTINUOUS SUCCESS',
+    text: {
+      __html: `GEOTECH S.A. is committed to setting measurable objectives for quality management, environment, health, and safety. Our company's foundation is based on <u>international standards</u>, and our methods and objectives are aligned with this framework. We prioritize QHSE and strive to execute our work as planned, adhering to strict timelines, maintaining effective documentation, reporting regularly, and conducting audits to assess project progress and performance.`,
     },
   },
   sectionClients: {
