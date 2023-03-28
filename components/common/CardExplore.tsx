@@ -16,7 +16,7 @@ interface CardExploreProps {
 function CardExplore({ image, text }: CardExploreProps) {
   return (
     <article
-      className="relative flex-1 w-full rounded-sm shadow-lg overflow-hidden
+      className="relative flex-1 w-full rounded-md shadow-lg overflow-hidden
       min-w-[400px] h-[450px] mobile:min-w-full group
       hover:shadow-2xl hover:scale-105 transition-all duration-300"
     >

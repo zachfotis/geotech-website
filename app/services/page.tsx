@@ -4,6 +4,7 @@ import Sustainable3Image from '@/assets/cards/sustainable3.jpg';
 
 import backgroundImage from '@/assets/images/background2.jpg';
 import CardExplore from '@/components/common/CardExplore';
+import CardExploreDark from '@/components/common/CardExploreDark';
 import Hero from '@/components/common/Hero';
 import HeroImage from '@/components/common/HeroImage';
 import Section from '@/components/common/Section';
@@ -35,7 +36,12 @@ function page() {
       <Section
         title="Oil and Gas Services"
         text="Geotech S.A. offers specialized services and in situ support, evaluation, exploitation and management of Groundwater resources, Ground Renewable Energy sources, Mining Resources, and Geotechnical and Environmental applications."
-      ></Section>
+      >
+        <div className="w-full flex justify-center items-stretch flex-wrap gap-10">
+          <CardExploreDark image={Sustainable2Image} text={pageData.geothermal.explore.card1} />
+          <CardExploreDark image={Sustainable1Image} text={pageData.geothermal.explore.card1} />
+        </div>
+      </Section>
     </>
   );
 }
