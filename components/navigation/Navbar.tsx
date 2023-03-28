@@ -81,7 +81,7 @@ function Navbar() {
               ))}
               <Link href="/quote">
                 <motion.li
-                  className="px-3 py-1 rounded-lg text-primary hover:bg-primary hover:text-white
+                  className="px-3 py-1 text-primary hover:bg-primary hover:text-white
                 outline-primary outline outline-1 outline-solid"
                   initial={isTablet && { x: '500px' }}
                   animate={{ x: 0 }}
@@ -89,7 +89,7 @@ function Navbar() {
                   transition={{ duration: 0.5, delay: 0.4, type: 'spring', stiffness: 100 }}
                   onClick={() => setShowMenu(!showMenu)}
                 >
-                  Get a Quote
+                  REQUEST A QUOTE
                 </motion.li>
               </Link>
               <motion.li

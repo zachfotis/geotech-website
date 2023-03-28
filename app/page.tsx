@@ -10,6 +10,7 @@ import ISO1Image from '@/assets/images/iso1.png';
 import ISO2Image from '@/assets/images/iso2.png';
 import ISO3Image from '@/assets/images/iso3.png';
 import SelectedImage from '@/assets/logos/logo.png';
+import CardStat from '@/components/common/CardStat';
 import Hero from '@/components/common/Hero';
 import HeroVideo from '@/components/common/HeroVideo';
 import ImageText from '@/components/common/ImageText';
@@ -17,7 +18,6 @@ import Map from '@/components/common/Map';
 import RotatingImage from '@/components/common/RotatingImage';
 import Section from '@/components/common/Section';
 import SectionFullDark from '@/components/common/SectionFullDark';
-import StatCard from '@/components/common/StatCard';
 import Clients from '@/components/home/Clients';
 
 function page() {
@@ -38,9 +38,9 @@ function page() {
       <Section title={homeData.sectionAboutUs.title} text={homeData.sectionAboutUs.text}>
         <ImageText selectedImage={SelectedImage} text={homeData.sectionAboutUs.innerText} />
         <div className="w-full flex justify-between items-stretch gap-5 flex-wrap">
-          <StatCard image={Stats1Image} text={homeData.sectionAboutUs.stats.card1} textLG />
-          <StatCard image={Stats2Image} text={homeData.sectionAboutUs.stats.card2} textLG />
-          <StatCard image={Stats3Image} text={homeData.sectionAboutUs.stats.card3} textLG />
+          <CardStat image={Stats1Image} text={homeData.sectionAboutUs.stats.card1} textLG />
+          <CardStat image={Stats2Image} text={homeData.sectionAboutUs.stats.card2} textLG />
+          <CardStat image={Stats3Image} text={homeData.sectionAboutUs.stats.card3} textLG />
         </div>
       </Section>
 
@@ -52,10 +52,10 @@ function page() {
 
       <Section title={homeData.sectionSolutions.title} text={homeData.sectionSolutions.text}>
         <div className="w-full flex justify-between items-stretch gap-5 flex-wrap">
-          <StatCard image={Activity1Image} text={homeData.sectionSolutions.stats.card1} />
-          <StatCard image={Activity2Image} text={homeData.sectionSolutions.stats.card2} />
-          <StatCard image={Activity3Image} text={homeData.sectionSolutions.stats.card3} />
-          <StatCard image={Activity4Image} text={homeData.sectionSolutions.stats.card4} />
+          <CardStat image={Activity1Image} text={homeData.sectionSolutions.stats.card1} />
+          <CardStat image={Activity2Image} text={homeData.sectionSolutions.stats.card2} />
+          <CardStat image={Activity3Image} text={homeData.sectionSolutions.stats.card3} />
+          <CardStat image={Activity4Image} text={homeData.sectionSolutions.stats.card4} />
         </div>
       </Section>
 

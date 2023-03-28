@@ -37,7 +37,7 @@ function Hero({
       </div>
       {/* Body */}
       <div
-        className="max-w-[1440px] mx-auto my-auto w-full 
+        className="max-w-[1280px] mx-auto my-auto w-full 
           flex flex-col justify-start items-start gap-[60px] z-10
           laptop:mt-[100px]"
       >
@@ -61,9 +61,7 @@ function Hero({
           />
         </h1>
         {/* Text */}
-        <p className="w-[80%] text-h3 text-white font-[300] mobile:text-h4">
-          <Balancer>{text}</Balancer>
-        </p>
+        <p className="w-[80%] text-h3 text-white font-[300] mobile:text-h4">{text}</p>
         {/* Button - Optional */}
         {button.exists && <Button text={button.text} variant={button.variant} url={button.url} />}
       </div>

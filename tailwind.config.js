@@ -15,8 +15,8 @@ module.exports = {
         white: '#FFFFFF',
       },
       fontSize: {
-        title: '6rem',
-        h1: '3rem',
+        title: '5rem',
+        h1: '2.8rem',
         h2: '2.4rem',
         h3: '1.9rem',
         h4: '1.6rem',

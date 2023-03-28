@@ -41,7 +41,7 @@ function Map({ coords, zoom = 14, scroll = true }: Props) {
       zoom={zoom}
       scrollWheelZoom={scroll}
       style={{ width: '100%', height: '100%', zIndex: 0 }}
-      className="rounded-xl overflow-hidden shadow-lg"
+      className="rounded-sm overflow-hidden shadow-lg"
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

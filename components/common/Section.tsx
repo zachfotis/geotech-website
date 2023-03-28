@@ -23,12 +23,12 @@ function Section({ title, text = '', children }: SectionProps) {
           {/* Left Green Line */}
           <span
             className="absolute -top-[5px] -left-[20px] mobile:hidden
-            w-[8px] h-[40px] bg-secondary rounded-b-sm"
+            w-[6px] h-[40px] bg-secondary rounded-b-sm"
           />
           {/* Top Green Line */}
           <span
             className="absolute -top-[5px] -left-[20px] mobile:left-0 mobile:w-[60px]
-            w-[40px] h-[8px] bg-secondary rounded-r-sm"
+            w-[40px] h-[6px] bg-secondary rounded-r-sm"
           />
         </h1>
         {text && <p className="w-full text-text">{text}</p>}

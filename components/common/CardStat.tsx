@@ -13,7 +13,7 @@ interface StatCardProps {
 function StatCard({ image, text, textLG = false }: StatCardProps) {
   return (
     <article
-      className="relative flex-1 w-full rounded-lg shadow-lg overflow-hidden
+      className="relative flex-1 w-full rounded-sm shadow-lg overflow-hidden
       min-w-[400px] h-[450px] mobile:min-w-full
       hover:shadow-2xl hover:scale-105 transition-all duration-300"
     >
