@@ -42,7 +42,6 @@ function CardExplore({ image, text }: CardExploreProps) {
           <Button text={'Learn More'} url={text.url} variant={'arrow'} />
         </div>
       </div>
-      ``
     </article>
   );
 }
