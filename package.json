@@ -16,6 +16,7 @@
     "react-particles": "^2.7.1",
     "react-scroll-parallax": "^3.3.2",
     "react-wrap-balancer": "^0.4.0",
+    "server-only": "^0.0.1",
     "sharp": "^0.31.3",
     "tsparticles": "^2.9.3"
   },

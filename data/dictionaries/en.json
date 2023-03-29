@@ -1,0 +1,11 @@
+{
+  "navbar": {
+    "home": "Home",
+    "services": "Services",
+    "projects": "Projects",
+    "academy": "Academy",
+    "about": "About",
+    "login": "Login",
+    "quote": "REQUEST A QUOTE"
+  }
+}

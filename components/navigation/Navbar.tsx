@@ -9,8 +9,16 @@ import { SlClose } from 'react-icons/sl';
 import AcademyIcon from '../../assets/icons/academy.png';
 import LogoSmallImage from '../../assets/images/logo.png';
 import LogoImage from '../../assets/logos/logo-full-notext.png';
+import LanguageSelector from '../common/LanguageSelector';
 
-function Navbar() {
+type NavbarProps = {
+  lang: string;
+  data: {
+    [key: string]: string;
+  };
+};
+
+function Navbar({ lang, data }: NavbarProps) {
   const [showMenu, setShowMenu] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
 
@@ -89,7 +97,7 @@ function Navbar() {
                   transition={{ duration: 0.5, delay: 0.4, type: 'spring', stiffness: 100 }}
                   onClick={() => setShowMenu(!showMenu)}
                 >
-                  REQUEST A QUOTE
+                  {data.quote}
                 </motion.li>
               </Link>
               <motion.li
@@ -102,6 +110,8 @@ function Navbar() {
               >
                 <SlClose className="text-4xl" />
               </motion.li>
+
+              <LanguageSelector lang={lang} />
             </motion.ul>
           )}
         </AnimatePresence>
