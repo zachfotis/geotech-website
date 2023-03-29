@@ -39,7 +39,7 @@ function CardExplore({ image, text }: CardExploreProps) {
           <Balancer className="w-full">{text.content}</Balancer>
         </p>
         <div className="mt-auto">
-          <Button text={'Learn More'} url={text.url} variant={'arrow'} />
+          <Button text={'Explore'} url={text.url} variant={'arrow'} size="md" />
         </div>
       </div>
     </article>

@@ -87,12 +87,12 @@ function Footer() {
           </div>
           <Link href="/quote" className="w-full font-[400]">
             <motion.button
-              className="w-full px-3 py-1 rounded-lg text-accent bg-primary hover:text-white mt-5"
+              className="w-full px-3 py-1 rounded-sm text-black bg-primary hover:text-white mt-5"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.2 }}
             >
-              Get a Quote
+              Request a Quote
             </motion.button>
           </Link>
         </div>

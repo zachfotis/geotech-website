@@ -1,11 +1,18 @@
 import { MdOutlineArrowForwardIos } from 'react-icons/md';
 
-function Button({ text, variant = 'bordered', onClick = () => {}, url = '' }: Button) {
-  const variants = {
-    underlined: 'text-textLG text-primary px-[20px] py-[10px] bg-white border-b-[5px] border-b-primary',
-    bordered: 'text-textLG text-primary px-[20px] py-[10px] bg-white border-[1px] border-primary rounded-lg',
-    arrow: 'text-textLG text-primary bg-white',
+function Button({ text, variant = 'bordered', onClick = () => {}, url = '', size = 'lg' }: Button) {
+  const textSize = {
+    lg: 'text-textLG',
+    md: 'text-text',
+    sm: 'text-textSM',
   };
+
+  const variants = {
+    underlined: textSize[size] + ' text-primary px-[20px] py-[10px] bg-white border-b-[5px] border-b-primary',
+    bordered: textSize[size] + ' text-primary px-[20px] py-[10px] bg-white border-[1px] border-primary rounded-lg',
+    arrow: textSize[size] + ' text-primary bg-white',
+  };
+
   return (
     <button
       className={

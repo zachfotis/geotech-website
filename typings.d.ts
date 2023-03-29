@@ -10,4 +10,5 @@ type Button = {
   variant?: 'underlined' | 'bordered' | 'arrow';
   onClick?: () => void;
   url?: string;
+  size?: 'sm' | 'md' | 'lg';
 };

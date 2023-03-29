@@ -9,6 +9,7 @@ interface CardExploreDarkProps {
   text: {
     title: string;
     content: string;
+    button: string;
     url: string;
   };
 }
@@ -28,7 +29,7 @@ function CardExploreDark({ image, text }: CardExploreDarkProps) {
           <Balancer className="w-full">{text.content}</Balancer>
         </p>
         <div className="mt-10">
-          <Button text={'Learn More'} url={text.url} variant={'underlined'} />
+          <Button text={text.button} url={text.url} variant={'underlined'} size="md" />
         </div>
       </div>
       <Image src={image} alt="Stat Image" className="h-full w-full object-cover" />
