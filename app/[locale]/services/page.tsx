@@ -2,15 +2,13 @@ import Geotechnical1Image from '@/assets/cards/geotechnical1.png';
 import Geotechnical2Image from '@/assets/cards/geotechnical2.png';
 import Geotechnical3Image from '@/assets/cards/geotechnical3.jpg';
 import Geotechnical4Image from '@/assets/cards/geotechnical4.png';
+import Sustainable1Image from '@/assets/cards/geothermal2.jpg';
 import Groundwater1Image from '@/assets/cards/groundwater1.png';
 import Groundwater2Image from '@/assets/cards/groundwater2.png';
 import Groundwater3Image from '@/assets/cards/groundwater3.png';
 import OilAndGas1Image from '@/assets/cards/oilandgas1.png';
 import OilAndGas2Image from '@/assets/cards/oilandgas2.jpg';
 import OilAndGas3Image from '@/assets/cards/oilandgas3.png';
-import Sustainable1Image from '@/assets/cards/sustainable1.jpg';
-import Sustainable2Image from '@/assets/cards/sustainable2.webp';
-import Sustainable3Image from '@/assets/cards/sustainable3.jpg';
 
 import backgroundImage from '@/assets/images/background2.jpg';
 import CardExplore from '@/components/common/CardExplore';
@@ -36,10 +34,10 @@ function page() {
       />
 
       <Section title={pageData.geothermal.title} text={pageData.geothermal.text}>
-        <div className="w-full flex justify-center items-center flex-wrap gap-10">
-          <CardExplore image={Sustainable1Image} text={pageData.geothermal.explore.card1} />
-          <CardExplore image={Sustainable2Image} text={pageData.geothermal.explore.card2} />
-          <CardExplore image={Sustainable3Image} text={pageData.geothermal.explore.card3} />
+        <div className="w-full flex justify-start items-center flex-wrap gap-10">
+          <CardExploreDark image={Sustainable1Image} text={pageData.geothermal.explore.card1} />
+          {/* <CardExplore image={Sustainable2Image} text={pageData.geothermal.explore.card2} /> */}
+          {/* <CardExplore image={Sustainable3Image} text={pageData.geothermal.explore.card3} /> */}
         </div>
       </Section>
 
@@ -87,13 +85,15 @@ const pageData = {
     text: 'Geotech is focused on delivering environmentally friendly energy solutions worldwide that surpass conventional energy sources.',
   },
   geothermal: {
-    title: 'Geothermal Energy Solutions',
+    title: 'Sustainable Energy Services',
     text: 'Geotech is focused on delivering environmentally friendly energy solutions worldwide that surpass conventional energy sources.',
     explore: {
       card1: {
         title: 'Geothermal Energy',
         content:
           "Geothermal Services involve the utilization of the heat energy stored in the Earth's subsurface to generate electricity or provide direct heating and cooling.",
+        button: 'EXPLORE GEOTHERMAL',
+
         url: '/services/geothermal-energy',
       },
       card2: {

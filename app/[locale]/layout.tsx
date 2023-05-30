@@ -1,10 +1,17 @@
 import Footer from '@/components/navigation/Footer';
 import Navbar from '@/components/navigation/Navbar';
-import { getDictionary } from '@/data/dictionaries/dictionaries';
 import '@/styles/globals.css';
 import type { Metadata } from 'next';
-import { cookies } from 'next/headers';
+import { NextIntlClientProvider } from 'next-intl';
+import { notFound } from 'next/navigation';
 import React from 'react';
+
+interface Params {
+  children: React.ReactElement;
+  params: {
+    locale: string;
+  };
+}
 
 export const metadata: Metadata = {
   title: 'Geotech Energy',
@@ -15,7 +22,6 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    nocache: false,
     googleBot: {
       index: true,
       follow: true,
@@ -32,31 +38,26 @@ export const metadata: Metadata = {
   manifest: '/site.webmanifest',
 };
 
-const getLang = (cookieStore: any) => {
-  const lang = cookieStore.get('lang')?.value || 'gr';
+export function generateStaticParams() {
+  return [{ locale: 'en' }, { locale: 'gr' }];
+}
 
-  if (!['en', 'gr'].includes(lang)) {
-    cookieStore.set('lang', 'gr');
-    return 'gr';
+export default async function RootLayout({ children, params: { locale } }: Params) {
+  let messages;
+  try {
+    messages = (await import(`../../data/dictionaries/${locale}.json`)).default;
+  } catch (error) {
+    notFound();
   }
-
-  console.log('lang', lang);
-
-  return lang;
-};
-
-export default async function RootLayout({ children }: { children: React.ReactElement }) {
-  const lang = getLang(cookies());
-  const dictionary = await getDictionary(lang);
 
   return (
     <html>
-      <body className="w-full min-h-screen bg-slate-50">
-        <Navbar lang={lang} data={dictionary.navbar} />
-        <div className="w-full min-h-screen flex flex-col justify-top items-center mb-[100px]">
-          {React.cloneElement(children, { lang })}
-        </div>
-        <Footer />
+      <body className="w-full min-h-screen bg-slate-50" suppressHydrationWarning={true}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <Navbar />
+          <div className="w-full min-h-screen flex flex-col justify-top items-center gap-10 mb-[100px]">{children}</div>
+          <Footer />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

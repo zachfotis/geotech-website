@@ -5,12 +5,26 @@ import FlagGR from 'assets/icons/flag-gr.png';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
-function LanguageSelector({ lang }: { lang: string }) {
-  const [language, setLanguage] = useState(lang);
+function LanguageSelector() {
+  const [language, setLanguage] = useState<string | null>(null);
 
   useEffect(() => {
-    document.cookie = `lang=${language}; path=/`;
-  }, [language]);
+    // Get locale from cookie
+    const locale = document.cookie
+      .split('; ')
+      .find((row) => row.startsWith('LOCALE'))
+      ?.split('=')[1];
+
+    if (!locale) {
+      // Set default locale
+      document.cookie = 'LOCALE=en ; path=/';
+      setLanguage('en');
+    } else {
+      setLanguage(locale);
+    }
+  }, []);
+
+  if (language === null) return null;
 
   return (
     <div className="text-black flex justify-start items-center gap-1">
@@ -25,9 +39,11 @@ function LanguageSelector({ lang }: { lang: string }) {
         name="languages"
         id="lang"
         className="border-none text-sm"
-        defaultValue={language}
+        value={language}
         onChange={(e) => {
           setLanguage(e.target.value);
+          // Set locale in cookie
+          document.cookie = `LOCALE=${e.target.value} ; path=/`;
           window.location.reload();
         }}
       >

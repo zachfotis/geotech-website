@@ -1,5 +1,7 @@
 'use client';
+
 import { AnimatePresence, motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -11,18 +13,38 @@ import LogoSmallImage from '../../assets/images/logo.png';
 import LogoImage from '../../assets/logos/logo-full-notext.png';
 import LanguageSelector from '../common/LanguageSelector';
 
-type NavbarProps = {
-  lang: string;
-  data: {
-    [key: string]: string;
-  };
-};
-
-function Navbar({ lang, data }: NavbarProps) {
+function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
-
   const pathname = usePathname();
+  const t = useTranslations('navbar');
+
+  const menuitems = [
+    {
+      title: t('home'),
+      link: '/',
+    },
+    {
+      title: t('services'),
+      link: '/services',
+    },
+    {
+      title: t('projects'),
+      link: '/projects',
+    },
+    {
+      title: t('academy'),
+      link: '/academy',
+    },
+    {
+      title: t('about'),
+      link: '/about',
+    },
+    {
+      title: t('login'),
+      link: '/login',
+    },
+  ];
 
   const handleResize = () => {
     window.innerWidth <= 768 ? setIsTablet(true) : setIsTablet(false);
@@ -97,7 +119,7 @@ function Navbar({ lang, data }: NavbarProps) {
                   transition={{ duration: 0.5, delay: 0.4, type: 'spring', stiffness: 100 }}
                   onClick={() => setShowMenu(!showMenu)}
                 >
-                  {data.quote}
+                  {t('quote')}
                 </motion.li>
               </Link>
               <motion.li
@@ -111,7 +133,7 @@ function Navbar({ lang, data }: NavbarProps) {
                 <SlClose className="text-4xl" />
               </motion.li>
 
-              <LanguageSelector lang={lang} />
+              <LanguageSelector />
             </motion.ul>
           )}
         </AnimatePresence>
@@ -124,30 +146,3 @@ function Navbar({ lang, data }: NavbarProps) {
 }
 
 export default Navbar;
-
-const menuitems = [
-  {
-    title: 'Home',
-    link: '/',
-  },
-  {
-    title: 'Services',
-    link: '/services',
-  },
-  {
-    title: 'Projects',
-    link: '/projects',
-  },
-  {
-    title: 'Academy',
-    link: '/academy',
-  },
-  {
-    title: 'About us',
-    link: '/about',
-  },
-  {
-    title: 'Login',
-    link: '/login',
-  },
-];
