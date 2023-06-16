@@ -44,6 +44,7 @@ export function generateStaticParams() {
 
 export default async function RootLayout({ children, params: { locale } }: Params) {
   let messages;
+
   try {
     messages = (await import(`../../data/dictionaries/${locale}.json`)).default;
   } catch (error) {
