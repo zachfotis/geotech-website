@@ -100,7 +100,7 @@ function Navbar() {
                 >
                   <Link
                     href={item.link}
-                    className={`flex items-center gap-1 p-1 ${
+                    className={`flex items-center gap-1 p-1 text-text ${
                       pathname === item.link ? 'font-[500] border-b border-1 border-black' : ''
                     }`}
                   >
@@ -111,7 +111,7 @@ function Navbar() {
               ))}
               <Link href="/quote">
                 <motion.li
-                  className="px-3 py-1 text-primary hover:bg-primary hover:text-white
+                  className="px-3 py-1 text-text text-primary hover:bg-primary hover:text-white
                 outline-primary outline outline-1 outline-solid"
                   initial={isTablet && { x: '500px' }}
                   animate={{ x: 0 }}
